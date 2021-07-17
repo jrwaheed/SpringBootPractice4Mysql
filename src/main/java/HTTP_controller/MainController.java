@@ -10,20 +10,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 @RequestMapping(path= "/demo")
 
 public class MainController {
 
     @Autowired
-
     private CustomerRepository customerRepository;
 
-    @PostMapping(path="/add")
-    public @ResponseBody String addNewCustomer (@RequestParam String last_name,
-                                                @RequestParam String first_name,
-                                                @RequestParam double balance,
-                                                @RequestParam boolean mortgage_holder) {
+    @PostMapping(path = "/add")
+    public @ResponseBody String addNewCustomer (@RequestParam String last_name, @RequestParam String first_name, @RequestParam int balance, @RequestParam boolean mortgage_holder) {
         Customer newCustomer = new Customer();
         newCustomer.setLast_name(last_name);
         newCustomer.setFirst_name(first_name);
@@ -34,7 +32,14 @@ public class MainController {
     }
 
     @GetMapping(path="/all")
-    public @ResponseBody Iterable<Customer> getAllCustomers(){
+    public Iterable <Customer> getAllCustomers(){
+
+        return customerRepository.findAll();
+    }
+
+    @GetMapping(path="/list")
+    public List <Customer> findAllCustomers(){
+
         return customerRepository.findAll();
     }
 }

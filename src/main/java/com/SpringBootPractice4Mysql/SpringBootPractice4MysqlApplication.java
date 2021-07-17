@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringBootPractice4MysqlApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(SpringBootPractice4MysqlApplication.class, args);
 	}
 

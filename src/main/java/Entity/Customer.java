@@ -10,16 +10,25 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String last_name;
     private String first_name;
-    private double balance;
+    private int balance;
     private boolean mortgage_holder;
 
-    public Customer(/*String last_name, String first_name, double balance, boolean mortgage_holder*/) {
+    /*public Customer(String last_name, String first_name, double balance, boolean mortgage_holder) {
         this.last_name = last_name;
         this.first_name = first_name;
         this.balance = balance;
         this.mortgage_holder = mortgage_holder;
+    }*/
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLast_name() {
@@ -42,7 +51,7 @@ public class Customer {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(int balance){
         this.balance = balance;
     }
 
